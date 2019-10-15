@@ -1,0 +1,3 @@
+# fresher-vng
+
+hello, this is my project about research all topic system, linux, data, algorithm, java, web,...
