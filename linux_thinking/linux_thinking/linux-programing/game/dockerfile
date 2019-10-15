@@ -1,0 +1,9 @@
+FROM gcc:latest
+#tao va mo thu muc tren docker
+WORKDIR /server
+#copy tat ca thu muc hien hanh vao server
+COPY . /server
+#build chuong trinh bang gcc
+RUN gcc -pthread -o server server.c
+#docker se chay file output la ./testserver
+CMD ["./server"]

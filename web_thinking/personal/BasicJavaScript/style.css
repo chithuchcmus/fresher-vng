@@ -1,0 +1,46 @@
+.mid{
+    display:flex;
+    justify-content: center;
+}
+#header {
+    background-color: skyblue;
+    margin: 10px 0;
+}
+input{
+    margin: 0px 50px 0px 50px;
+}
+body{
+    background-color: antiquewhite;
+}
+
+#view {
+    justify-content: center;
+    padding: 5px;
+}
+
+.column {
+  column-count: 4;
+  column-gap: 6px;
+}
+
+.column img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+h1{
+    color:rgb(39, 39, 88);
+    font-weight: bold;
+    font-size: 40px;
+}
+button{
+    color: red;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0px 20px;
+}
+input{
+    color: blue;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0px 20px;
+}

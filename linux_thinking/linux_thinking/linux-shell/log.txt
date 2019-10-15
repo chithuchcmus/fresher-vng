@@ -1,0 +1,2 @@
+14:52:29: /home/cpu11183/Pictures/config_cluster_3_node.png
+time and file are expressed: 14:58:40: /home/cpu11183/.vscode/extensions/knisterpeter.vscode-github-0.30.2/images/create-pull-request.png

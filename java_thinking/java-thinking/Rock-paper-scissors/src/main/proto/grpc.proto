@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package com.thuc.rps.gRPC.source;
+
+message UserRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message SignInRespone {
+    string message = 1;
+    string status = 2;
+    string token = 3;
+}
+message SignupRespone{
+    string message = 1;
+    string status =2;
+}
+
+message RequestCreateGame{
+    string token = 1;
+}
+message Game{
+    int32 result = 1;
+    int32 userplay =2;
+    int32 serverplay =3;
+}
+
+message CreateGameRespone{
+    string message = 1;
+    string status = 2;
+    int32 gameid = 3;
+}
+message PlayGameRequests{
+    string token = 1;
+    int32 gameid = 2;
+    int32 userplay = 3;
+}
+message PlayGameRespones{
+    string message =1;
+    string status =2;
+    int32 userplay =3;
+    int32 serverplay= 4;
+}
+message InfoTopUser{
+    string username =1;
+}
+
+message RankRequest{
+}
+
+message RankRespone{
+    string message =1;
+    string status = 2;
+    repeated InfoTopUser infoUser =3;
+}
+
+message HistoryRequest{
+    string token =1;
+}
+
+message HistoryRespone{
+    string message =1;
+    string status =2;
+    repeated Game game =3;
+}
+
+service gRPCService {
+    rpc signUpRequest(UserRequest) returns (SignupRespone);
+    rpc signInRequest(UserRequest) returns (SignInRespone);
+    rpc createGameRequest(RequestCreateGame) returns (CreateGameRespone);
+    rpc playGameRequest(PlayGameRequests) returns (PlayGameRespones);
+    rpc rankRequest(RankRequest) returns (RankRespone);
+    rpc historyRequest(HistoryRequest) returns (HistoryRespone);
+
+}

@@ -1,0 +1,68 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@5.9.0/css/all.min.css"
+    integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://www.unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+  <link href="/static/css/stylechat.css" rel="stylesheet" />
+</head>
+
+<body style="background:  rgb(211, 201, 201);">
+  <div class="container">
+    <h3 class=" text-center">Messaging</h3>
+    <div class="messaging">
+      <div class="inbox_msg">
+        <div class="inbox_people">
+          <div class="headind_srch">
+            <div class="recent_heading">
+              <h6 class="mt-1"><a href="/friend">List Friend</a></h6>
+            </div>
+            <div class="srch_bar">
+              <div class="stylish-input-group">
+                <input id="email-to-chat" type="text" class="search-bar" placeholder="Search" />
+                <span class="input-group-addon">
+                  <button id="search-to-chat" type="button">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="inbox_chat"></div>
+        </div>
+        <div class="mesgs" style="background:  rgb(252, 250, 250);">
+          <div class="msg_history">
+          </div>
+          <div class="type_msg">
+            <div class="input_msg_write">
+              <input id="message-context" type="text" class="write_msg" placeholder="Type a message" />
+              <button id="send" class="msg_send_btn" type="button">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"
+    integrity="sha384-L2pyEeut/H3mtgCBaUNw7KWzp5n9+4pDQiExs933/5QfaTh8YStYFFkOzSoXjlTb"
+    crossorigin="anonymous"></script>
+  <script src="https://www.unpkg.com/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/chat1.js"></script>
+</body>
+
+</html>

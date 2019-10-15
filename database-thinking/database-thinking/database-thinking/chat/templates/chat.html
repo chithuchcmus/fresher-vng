@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+      integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY="
+      crossorigin="anonymous"
+    />
+
+    <title>Chat</title>
+  </head>
+  <body>
+    <div class="container py-3">
+        <h1>Xin chào <span id="hello"></span></h1>
+      <div class="row">
+          <div class="col-3">
+            <input type="text" class="form-control" id="ChooseSpeaker" placeholder="Tìm người khác">
+          </div>
+          <div class="col-9">
+              <button type="button" class="btn btn-primary" id="btnSearchFriend">
+                  Tìm
+                </button>
+          </div>
+
+      </div>
+    </div>
+
+    <div
+      class="container py-3 border"
+      id="chat"
+      style="overflow: auto; overflow-wrap: break-word; height: 50vh"
+    >
+    </div>
+    <div class="container py-3">
+      <form id="formChat" autocomplete="off">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" id="inputMessage" placeholder="Nhập tin nhắn..." />
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-primary">
+                Gửi
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="container">
+      <button type="button" class="btn btn-primary mr-2" id="btnLeave">
+        Thoát
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+      <button type="button" class="btn btn-primary" id="btnNext">
+        Tìm phòng khác
+        <i class="fas fa-chevron-circle-right"></i>
+      </button>
+    </div>
+
+    <div class="modal fade" id="modalEditInfo">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="formEditInfo">
+            <div class="modal-header">
+              <h3>Thay đổi thông tin</h3>
+              <button type="button" class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="inputFullNameEditInfo">Tên hiển thị</label>
+                <input
+                  class="form-control"
+                  id="inputFullNameEditInfo"
+                  type="text"
+                />
+              </div>
+              <div class="form-group">
+                <label for="inputGenderEditInfo">Giới tính</label>
+                <input
+                  class="form-control"
+                  id="inputGenderEditInfo"
+                  type="text"
+                />
+              </div>
+              <div class="form-group">
+                <label>Năm sinh</label>
+                <input
+                  class="form-control"
+                  id="inputBirthYearEditInfo"
+                  max="2019"
+                  min="1900"
+                  step="1"
+                  type="number"
+                />
+              </div>
+              <div>
+                <p class="text-danger" id="errEditInfo"></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Quay lại
+              </button>
+              <button type="submit" class="btn btn-primary">Thay đổi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modalEditSearch">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="formEditSearch">
+            <div class="modal-header">
+              <h3>Thay đổi cách tìm kiếm</h3>
+              <button type="button" class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="checkGenderEditSearch"
+                  />
+                  <label class="form-check-label" for="checkGenderEditSearch">
+                    Tìm theo giới tính
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="checkBirthYearEditSearch"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="checkBirthYearEditSearch"
+                  >
+                    Tìm theo năm sinh
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Quay lại
+              </button>
+              <button type="submit" class="btn btn-primary">Thay đổi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"
+      integrity="sha256-fTuUgtT7O2rqoImwjrhDgbXTKUwyxxujIMRIK7TbuNU="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/color.js"></script>
+    <script src="/static/js/chat.js"></script>
+    <script></script>
+  </body>
+</html>
